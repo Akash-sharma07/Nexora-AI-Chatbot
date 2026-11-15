@@ -1,0 +1,1924 @@
+/* ============================================================
+   NEXORA AI — CSS matched to frontend_memory_chatbot.py
+   Palette: Obsidian + Royal Violet
+   Replace the entire contents of style.css with this file.
+   ============================================================ */
+
+:root {
+    --nexora-bg: #0B0B12;
+    --nexora-bg-deep: #080810;
+    --nexora-sidebar: #0D0C18;
+    --nexora-surface: #191827;
+    --nexora-surface-2: #211E35;
+    --nexora-primary: #7C3AED;
+    --nexora-primary-deep: #6D28D9;
+    --nexora-purple: #A855F7;
+    --nexora-lavender: #C084FC;
+    --nexora-lavender-light: #E9D5FF;
+    --nexora-text: #F5F3FF;
+    --nexora-text-soft: #D8D2E8;
+    --nexora-muted: #A1A1AA;
+    --nexora-border: rgba(192, 132, 252, 0.20);
+    --nexora-border-strong: rgba(192, 132, 252, 0.48);
+    --nexora-gradient: linear-gradient(115deg, #9333EA 0%, #7C3AED 55%, #6D28D9 100%);
+    --nexora-shadow: 0 10px 30px rgba(124, 58, 237, 0.18);
+}
+
+/* -------------------- App canvas / spacing -------------------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.stApp {
+    color: var(--nexora-text);
+    background:
+        radial-gradient(ellipse at 76% 2%, rgba(124, 58, 237, 0.13), transparent 38%),
+        radial-gradient(ellipse at 8% 70%, rgba(88, 28, 135, 0.075), transparent 34%),
+        var(--nexora-bg);
+}
+
+.stApp .main .block-container {
+    width: 100%;
+    max-width: 1500px;
+    box-sizing: border-box;
+    padding-top: 2.25rem !important;
+    padding-bottom: 6.5rem !important;
+    padding-left: clamp(1rem, 3vw, 2.5rem);
+    padding-right: clamp(1rem, 3vw, 2.5rem);
+}
+
+.stApp h1,
+.stApp h2,
+.stApp h3,
+.stApp h4 {
+    color: var(--nexora-text);
+    letter-spacing: -0.025em;
+}
+
+.stApp p {
+    color: var(--nexora-text-soft);
+    line-height: 1.65;
+}
+
+.stApp a {
+    color: var(--nexora-lavender);
+}
+
+.stApp a:hover {
+    color: var(--nexora-lavender-light);
+}
+
+/* Streamlit top bar: keep it visible, simply style it. */
+header[data-testid="stHeader"] {
+    background: rgba(11, 11, 18, 0.97);
+    border-bottom: 1px solid rgba(192, 132, 252, 0.08);
+}
+
+header[data-testid="stHeader"] button {
+    color: var(--nexora-text);
+}
+
+/* -------------------- Sidebar -------------------- */
+
+section[data-testid="stSidebar"] {
+    background:
+        radial-gradient(ellipse at 12% 0%, rgba(124, 58, 237, 0.14), transparent 42%),
+        linear-gradient(180deg, #100D1D 0%, #0D0C18 55%, #100D1C 100%);
+    border-right: 1px solid var(--nexora-border);
+}
+
+section[data-testid="stSidebar"] > div {
+    background: transparent;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3 {
+    color: var(--nexora-text);
+}
+
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] label {
+    color: var(--nexora-text-soft);
+}
+
+section[data-testid="stSidebar"] hr {
+    border-color: var(--nexora-border);
+    margin: 1rem 0;
+}
+
+/* Branding classes used by the uploaded frontend */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 1rem 0.35rem 1.25rem;
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(192, 132, 252, 0.15);
+}
+
+.sidebar-brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    border-radius: 17px;
+    color: #FFFFFF;
+    font-size: 29px;
+    background: var(--nexora-gradient);
+    border: 1px solid rgba(233, 213, 255, 0.35);
+    box-shadow: 0 0 24px rgba(124, 58, 237, 0.28);
+}
+
+.sidebar-brand-copy {
+    min-width: 0;
+}
+
+.sidebar-brand-title {
+    color: var(--nexora-text);
+    font-size: 1.15rem;
+    line-height: 1.3;
+    font-weight: 760;
+    letter-spacing: -0.35px;
+}
+
+.sidebar-brand-subtitle {
+    color: var(--nexora-muted);
+    margin-top: 4px;
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+.sidebar-section-heading {
+    margin: 1.25rem 0 0.7rem;
+    color: #B8A6D8;
+    font-size: 0.70rem;
+    font-weight: 750;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+/* Sidebar widgets/buttons */
+section[data-testid="stSidebar"] .stButton > button {
+    width: 100%;
+    min-height: 2.65rem;
+    border-radius: 11px;
+    color: #EDE9FE;
+    background: rgba(25, 24, 39, 0.86);
+    border: 1px solid rgba(192, 132, 252, 0.16);
+    font-weight: 560;
+    text-align: left;
+    transition: background 180ms ease, border-color 180ms ease,
+                box-shadow 180ms ease, transform 180ms ease;
+}
+
+section[data-testid="stSidebar"] .stButton > button:hover {
+    color: #FFFFFF;
+    background: var(--nexora-gradient);
+    border-color: var(--nexora-border-strong);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.22);
+    transform: translateY(-1px);
+}
+
+section[data-testid="stSidebar"] .stTextInput input {
+    color: var(--nexora-text) !important;
+    background: rgba(23, 21, 37, 0.96) !important;
+    border: 1px solid rgba(192, 132, 252, 0.18) !important;
+    border-radius: 12px !important;
+}
+
+section[data-testid="stSidebar"] .stTextInput input:focus {
+    border-color: var(--nexora-lavender) !important;
+    box-shadow: 0 0 0 2px rgba(192, 132, 252, 0.10) !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stExpander"] {
+    background: rgba(25, 24, 39, 0.66);
+    border: 1px solid var(--nexora-border) !important;
+    border-radius: 12px !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
+    color: var(--nexora-muted);
+}
+
+.sidebar-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0.8rem 0.75rem;
+    margin: 0.35rem 0;
+    color: var(--nexora-text-soft);
+    background: rgba(25, 24, 39, 0.46);
+    border: 1px solid rgba(192, 132, 252, 0.10);
+    border-radius: 12px;
+}
+
+.sidebar-nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    flex: 0 0 35px;
+    border-radius: 10px;
+    color: var(--nexora-lavender);
+    font-size: 1.1rem;
+    background: rgba(124, 58, 237, 0.15);
+    border: 1px solid rgba(192, 132, 252, 0.14);
+}
+
+.sidebar-nav-item b {
+    display: block;
+    color: var(--nexora-text);
+    font-size: 0.86rem;
+    font-weight: 650;
+}
+
+.sidebar-nav-item small {
+    display: block;
+    margin-top: 3px;
+    color: var(--nexora-muted);
+    font-size: 0.72rem;
+    line-height: 1.45;
+}
+
+.sidebar-muted-note {
+    margin: 0.8rem 0;
+    color: var(--nexora-muted);
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+
+.sidebar-document-status {
+    margin: 0.7rem 0;
+    padding: 0.65rem 0.75rem;
+    color: #D1FAE5;
+    font-size: 0.78rem;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(52, 211, 153, 0.22);
+    border-radius: 10px;
+}
+
+.sidebar-account-divider {
+    height: 1px;
+    margin: 1.25rem 0 0.9rem;
+    background: var(--nexora-border);
+}
+
+.sidebar-account-card {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0.8rem;
+    margin: 0.3rem 0 0.75rem;
+    background: rgba(25, 24, 39, 0.76);
+    border: 1px solid var(--nexora-border);
+    border-radius: 14px;
+}
+
+.account-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    background: var(--nexora-gradient);
+    border: 1px solid rgba(233, 213, 255, 0.35);
+    border-radius: 50%;
+    box-shadow: 0 0 16px rgba(124, 58, 237, 0.18);
+}
+
+.account-copy {
+    min-width: 0;
+}
+
+.account-name {
+    overflow-wrap: anywhere;
+    color: var(--nexora-text);
+    font-size: 0.86rem;
+    font-weight: 650;
+}
+
+.account-subtitle {
+    margin-top: 3px;
+    color: var(--nexora-muted);
+    font-size: 0.74rem;
+}
+
+/* -------------------- Authentication screen -------------------- */
+
+.auth-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 2.5rem auto 2rem;
+    padding: 1.2rem;
+}
+
+.auth-brand .nexora-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+    color: #FFFFFF;
+    font-size: 31px;
+    border-radius: 19px;
+    background: var(--nexora-gradient);
+    border: 1px solid rgba(233, 213, 255, 0.35);
+    box-shadow: 0 0 28px rgba(124, 58, 237, 0.30);
+}
+
+.auth-brand-title {
+    color: var(--nexora-text);
+    font-size: 1.7rem;
+    font-weight: 780;
+    letter-spacing: -0.7px;
+}
+
+.auth-brand-subtitle {
+    margin-top: 4px;
+    color: var(--nexora-text-soft);
+    font-size: 0.88rem;
+}
+
+.auth-intro {
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+}
+
+.auth-intro h1 {
+    margin-bottom: 0.6rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 760;
+}
+
+.auth-intro p {
+    color: var(--nexora-muted);
+    font-size: 0.92rem;
+}
+
+/* Login/signup forms */
+.stApp [data-testid="stForm"] {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.25rem;
+    background: rgba(25, 24, 39, 0.58);
+    border: 1px solid var(--nexora-border);
+    border-radius: 17px;
+}
+
+.stApp .stRadio [role="radiogroup"] {
+    gap: 0.75rem;
+}
+
+.stApp [data-testid="stFormSubmitButton"] button {
+    min-height: 2.8rem;
+}
+
+/* -------------------- Main welcome hero -------------------- */
+/* These are the exact classes used by the uploaded frontend:
+   .nexora-hero, .hero-orbit, .hero-orbit-core, .desktop-break */
+
+.nexora-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0.75rem auto 1.75rem;
+    padding: 1.65rem 1.25rem 1.15rem;
+
+    background:
+        radial-gradient(ellipse at 50% 15%, rgba(124, 58, 237, 0.13), transparent 55%),
+        linear-gradient(180deg, rgba(20, 17, 34, 0.20), rgba(11, 11, 18, 0));
+    border-bottom: 1px solid rgba(192, 132, 252, 0.15);
+
+    animation: nexoraHeroEnter 650ms ease-out both;
+}
+
+.nexora-hero::before,
+.nexora-hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 50vw;
+    height: 190px;
+    left: 50%;
+    top: 25px;
+    border: 1px solid rgba(168, 85, 247, 0.12);
+    border-radius: 50%;
+    transform: translateX(-50%) rotate(-8deg);
+    pointer-events: none;
+}
+
+.nexora-hero::after {
+    width: 65vw;
+    top: 46px;
+    transform: translateX(-50%) rotate(8deg);
+    border-color: rgba(124, 58, 237, 0.10);
+}
+
+.hero-orbit {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.25rem;
+    border: 1px solid rgba(192, 132, 252, 0.40);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.20), rgba(25, 24, 39, 0.90) 68%);
+    box-shadow:
+        0 0 0 8px rgba(124, 58, 237, 0.035),
+        0 0 32px rgba(124, 58, 237, 0.25),
+        inset 0 0 22px rgba(124, 58, 237, 0.15);
+    animation: nexoraOrbFloat 4.5s ease-in-out infinite;
+}
+
+.hero-orbit::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border: 1px solid rgba(192, 132, 252, 0.18);
+    border-radius: 50%;
+    animation: nexoraOrbPulse 3s ease-out infinite;
+}
+
+.hero-orbit-core {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    color: #FFFFFF;
+    font-size: 2.8rem;
+    text-shadow: 0 0 22px rgba(216, 180, 254, 0.8);
+    background: var(--nexora-gradient);
+    border: 1px solid rgba(233, 213, 255, 0.42);
+    border-radius: 50%;
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.35);
+}
+
+.nexora-hero h1 {
+    max-width: 900px;
+    margin: 0.25rem auto 0.7rem;
+    color: var(--nexora-text);
+    font-size: clamp(2rem, 4.2vw, 3.25rem);
+    font-weight: 780;
+    line-height: 1.14;
+    letter-spacing: -1.6px;
+}
+
+.nexora-hero p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #BEB5D7;
+    font-size: clamp(0.93rem, 1.4vw, 1.08rem);
+    line-height: 1.75;
+}
+
+.desktop-break {
+    display: initial;
+}
+
+/* -------------------- Feature cards used by the frontend -------------------- */
+/* Exact classes: feature-grid, feature-card, feature-blue/pink/cyan/violet,
+   feature-icon, feature-arrow */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 13px;
+    width: 100%;
+    max-width: 1250px;
+    margin: 1.35rem auto 2rem;
+}
+
+.feature-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    min-width: 0;
+    min-height: 125px;
+    box-sizing: border-box;
+    padding: 1rem 0.9rem;
+
+    background: linear-gradient(145deg, rgba(25, 24, 39, 0.95), rgba(17, 16, 29, 0.96));
+    border: 1px solid var(--nexora-border);
+    border-radius: 16px;
+
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    animation: nexoraCardEnter 520ms ease-out both;
+}
+
+.feature-card:nth-child(2) { animation-delay: 70ms; }
+.feature-card:nth-child(3) { animation-delay: 140ms; }
+.feature-card:nth-child(4) { animation-delay: 210ms; }
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100px;
+    height: 100px;
+    right: -40px;
+    top: -50px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.09);
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--nexora-border-strong);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18), 0 5px 20px rgba(124, 58, 237, 0.10);
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 43px;
+    width: 43px;
+    height: 43px;
+    margin-top: 1px;
+
+    color: var(--nexora-lavender-light);
+    font-size: 1.35rem;
+
+    background: rgba(124, 58, 237, 0.18);
+    border: 1px solid rgba(192, 132, 252, 0.22);
+    border-radius: 13px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.feature-card > div:not(.feature-icon) {
+    flex: 1;
+    min-width: 0;
+}
+
+.feature-card h3 {
+    margin: 0.2rem 0 0.45rem;
+    color: var(--nexora-text);
+    font-size: 0.96rem;
+    font-weight: 680;
+    letter-spacing: -0.2px;
+    line-height: 1.35;
+}
+
+.feature-card p {
+    margin: 0;
+    color: var(--nexora-muted);
+    font-size: 0.79rem;
+    line-height: 1.55;
+}
+
+.feature-arrow {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    margin-left: auto;
+    padding-left: 2px;
+    color: #BCA1EF;
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: transform 180ms ease;
+}
+
+.feature-card:hover .feature-arrow {
+    transform: translateX(3px);
+}
+
+/* Distinct card accents, all within the violet theme */
+.feature-blue .feature-icon {
+    color: #C4B5FD;
+    background: rgba(99, 102, 241, 0.16);
+    border-color: rgba(129, 140, 248, 0.25);
+}
+
+.feature-pink .feature-icon {
+    color: #E9A8FF;
+    background: rgba(192, 38, 211, 0.15);
+    border-color: rgba(232, 121, 249, 0.23);
+}
+
+.feature-cyan .feature-icon {
+    color: #A5F3FC;
+    background: rgba(8, 145, 178, 0.15);
+    border-color: rgba(103, 232, 249, 0.22);
+}
+
+.feature-violet .feature-icon {
+    color: #D8B4FE;
+    background: rgba(124, 58, 237, 0.20);
+    border-color: rgba(192, 132, 252, 0.28);
+}
+
+/* -------------------- Chat bubbles / streamed responses -------------------- */
+
+[data-testid="stChatMessage"] {
+    padding: 0.85rem 1rem;
+    background: rgba(25, 24, 39, 0.72);
+    border: 1px solid rgba(192, 132, 252, 0.14);
+    border-radius: 17px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+    animation: nexoraMessageEnter 300ms ease-out both;
+    transition: border-color 180ms ease, background 180ms ease;
+}
+
+[data-testid="stChatMessage"]:hover {
+    background: rgba(30, 27, 47, 0.86);
+    border-color: rgba(192, 132, 252, 0.27);
+}
+
+[data-testid="stChatMessage"] p {
+    color: #E9E5F5;
+    line-height: 1.7;
+}
+
+[data-testid="stChatMessage"] pre {
+    background: #100F1B !important;
+    border: 1px solid var(--nexora-border);
+    border-radius: 12px;
+}
+
+[data-testid="stChatMessage"] code {
+    color: #E9D5FF;
+}
+
+/* Tool status and approval widgets */
+[data-testid="stStatusWidget"],
+[data-testid="stAlert"] {
+    border-radius: 13px;
+}
+
+[data-testid="stAlert"] {
+    border: 1px solid var(--nexora-border);
+}
+
+[data-testid="stStatusWidget"] {
+    background: rgba(25, 24, 39, 0.72);
+    border: 1px solid var(--nexora-border);
+}
+
+/* -------------------- Chat input / attachments -------------------- */
+
+[data-testid="stChatInput"] {
+    background: rgba(23, 21, 37, 0.98);
+    border: 1px solid rgba(192, 132, 252, 0.34);
+    border-radius: 17px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.20);
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+[data-testid="stChatInput"]:focus-within {
+    border-color: var(--nexora-lavender);
+    box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.10), 0 8px 28px rgba(124, 58, 237, 0.11);
+}
+
+[data-testid="stChatInput"] textarea {
+    color: var(--nexora-text);
+    caret-color: var(--nexora-lavender);
+}
+
+[data-testid="stChatInput"] textarea::placeholder {
+    color: #9690AA;
+}
+
+[data-testid="stChatInput"] button {
+    color: #FFFFFF;
+    border-radius: 11px;
+    transition: transform 180ms ease, background 180ms ease;
+}
+
+[data-testid="stChatInput"] button:hover {
+    transform: scale(1.04);
+}
+
+/* -------------------- Common controls -------------------- */
+
+.stButton > button,
+.stFormSubmitButton > button,
+.stDownloadButton > button {
+    min-height: 2.55rem;
+    color: #FFFFFF;
+    font-weight: 620;
+    background: var(--nexora-gradient);
+    border: 1px solid rgba(192, 132, 252, 0.30);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.12);
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.stButton > button:hover,
+.stFormSubmitButton > button:hover,
+.stDownloadButton > button:hover {
+    color: #FFFFFF;
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(124, 58, 237, 0.22);
+    border-color: rgba(233, 213, 255, 0.55);
+}
+
+.stButton > button:active {
+    transform: translateY(0);
+}
+
+.stTextInput input,
+.stTextArea textarea,
+.stNumberInput input,
+.stDateInput input {
+    color: var(--nexora-text) !important;
+    background: #171525 !important;
+    border: 1px solid var(--nexora-border) !important;
+    border-radius: 11px !important;
+}
+
+.stTextInput input:focus,
+.stTextArea textarea:focus,
+.stNumberInput input:focus,
+.stDateInput input:focus {
+    border-color: var(--nexora-lavender) !important;
+    box-shadow: 0 0 0 2px rgba(192, 132, 252, 0.10) !important;
+}
+
+[data-baseweb="select"] > div {
+    color: var(--nexora-text) !important;
+    background-color: #171525 !important;
+    border-color: var(--nexora-border) !important;
+    border-radius: 11px !important;
+}
+
+/* PDF uploader */
+[data-testid="stFileUploader"] {
+    padding: 0.7rem;
+    background: rgba(25, 24, 39, 0.72);
+    border: 1px dashed rgba(192, 132, 252, 0.40);
+    border-radius: 15px;
+    transition: border-color 180ms ease, background 180ms ease;
+}
+
+[data-testid="stFileUploader"]:hover {
+    background: rgba(35, 25, 54, 0.82);
+    border-color: var(--nexora-lavender);
+}
+
+[data-testid="stFileUploader"] button {
+    border-radius: 9px;
+}
+
+/* Expanders / tabs */
+[data-testid="stExpander"] {
+    background: rgba(25, 24, 39, 0.58);
+    border: 1px solid var(--nexora-border) !important;
+    border-radius: 14px !important;
+}
+
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+    border-bottom: 1px solid var(--nexora-border);
+}
+
+.stTabs [data-baseweb="tab"] {
+    color: var(--nexora-muted);
+    border-radius: 10px 10px 0 0;
+    transition: color 180ms ease, background 180ms ease;
+}
+
+.stTabs [aria-selected="true"] {
+    color: var(--nexora-lavender-light) !important;
+    background: rgba(124, 58, 237, 0.12);
+}
+
+/* -------------------- Keyframe animations -------------------- */
+
+@keyframes nexoraHeroEnter {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nexoraCardEnter {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nexoraMessageEnter {
+    from { opacity: 0; transform: translateY(7px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nexoraOrbFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-5px); }
+}
+
+@keyframes nexoraOrbPulse {
+    0%   { transform: scale(0.92); opacity: 0.65; }
+    70%  { transform: scale(1.15); opacity: 0; }
+    100% { transform: scale(1.15); opacity: 0; }
+}
+
+/* -------------------- Responsive layout -------------------- */
+
+@media (max-width: 1100px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feature-card {
+        min-height: 112px;
+    }
+}
+
+@media (max-width: 650px) {
+    .stApp .main .block-container {
+        padding-top: 1.25rem !important;
+        padding-bottom: 5.5rem !important;
+        padding-left: 0.85rem;
+        padding-right: 0.85rem;
+    }
+
+    .sidebar-brand {
+        gap: 10px;
+        padding-top: 0.7rem;
+    }
+
+    .sidebar-brand-icon {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+        font-size: 24px;
+        border-radius: 14px;
+    }
+
+    .sidebar-brand-title {
+        font-size: 1.05rem;
+    }
+
+    .nexora-hero {
+        margin-top: 0.25rem;
+        padding: 1.25rem 0.6rem 1rem;
+    }
+
+    .hero-orbit {
+        width: 78px;
+        height: 78px;
+        margin-bottom: 1rem;
+    }
+
+    .hero-orbit-core {
+        width: 58px;
+        height: 58px;
+        font-size: 2.25rem;
+    }
+
+    .nexora-hero h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        letter-spacing: -0.8px;
+    }
+
+    .nexora-hero p {
+        font-size: 0.9rem;
+    }
+
+    .desktop-break {
+        display: none;
+    }
+
+    .feature-grid {
+        gap: 9px;
+        margin-top: 1rem;
+    }
+
+    .feature-card {
+        gap: 9px;
+        min-height: 112px;
+        padding: 0.85rem 0.7rem;
+        border-radius: 13px;
+    }
+
+    .feature-icon {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+        font-size: 1.1rem;
+        border-radius: 10px;
+    }
+
+    .feature-card h3 {
+        font-size: 0.87rem;
+    }
+
+    .feature-card p {
+        font-size: 0.73rem;
+    }
+
+    [data-testid="stChatMessage"] {
+        padding: 0.7rem;
+        border-radius: 13px;
+    }
+}
+
+@media (max-width: 390px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* -------------------- Accessibility -------------------- */
+
+:focus-visible {
+    outline: 2px solid var(--nexora-lavender);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================================
+   AUTH SCREEN REDESIGN — scoped to the login/signup page only
+   Matches render_auth_screen() in frontend_memory_chatbot.py.
+   The :has(.auth-brand) scope prevents these styles from changing
+   the normal chatbot interface after login.
+   ============================================================ */
+
+.stApp:has(.auth-brand) {
+    background:
+        radial-gradient(ellipse at 50% 18%, rgba(124, 58, 237, 0.19), transparent 42%),
+        radial-gradient(ellipse at 15% 82%, rgba(88, 28, 135, 0.10), transparent 32%),
+        linear-gradient(145deg, #090811 0%, #0B0B12 48%, #100B1A 100%);
+}
+
+.stApp:has(.auth-brand) .main .block-container {
+    max-width: 1120px;
+    min-height: calc(100vh - 70px);
+    padding-top: 1.7rem !important;
+    padding-bottom: 3.5rem !important;
+}
+
+/* Centered brand panel */
+.stApp:has(.auth-brand) .auth-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: min(100%, 510px);
+    box-sizing: border-box;
+    margin: 1.25rem auto 2.15rem;
+    padding: 1rem 1.25rem;
+    background:
+        linear-gradient(135deg, rgba(31, 22, 48, 0.90), rgba(18, 16, 30, 0.82));
+    border: 1px solid rgba(192, 132, 252, 0.22);
+    border-radius: 20px;
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(16px);
+    animation: authBrandEnter 500ms ease-out both;
+}
+
+.stApp:has(.auth-brand) .auth-brand .nexora-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 58px;
+    width: 58px;
+    height: 58px;
+    color: #FFFFFF;
+    font-size: 30px;
+    line-height: 1;
+    background: linear-gradient(135deg, #A855F7 0%, #7C3AED 58%, #5B21B6 100%);
+    border: 1px solid rgba(233, 213, 255, 0.40);
+    border-radius: 18px;
+    box-shadow: 0 0 28px rgba(124, 58, 237, 0.31), inset 0 1px 0 rgba(255,255,255,0.14);
+    animation: authLogoGlow 4s ease-in-out infinite;
+}
+
+.stApp:has(.auth-brand) .auth-brand-title {
+    color: #F5F3FF;
+    font-size: 1.55rem;
+    font-weight: 780;
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+}
+
+.stApp:has(.auth-brand) .auth-brand-subtitle {
+    margin-top: 5px;
+    color: #C4B5FD;
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+/* Welcome copy */
+.stApp:has(.auth-brand) .auth-intro {
+    width: min(100%, 570px);
+    box-sizing: border-box;
+    margin: 0 auto 1.5rem;
+    padding: 0 1rem;
+    text-align: center;
+    animation: authIntroEnter 600ms ease-out both;
+}
+
+.stApp:has(.auth-brand) .auth-intro h1 {
+    margin: 0 0 0.65rem;
+    color: #F5F3FF;
+    font-size: clamp(2.15rem, 4.4vw, 3.1rem);
+    font-weight: 790;
+    letter-spacing: -1.7px;
+    line-height: 1.12;
+}
+
+.stApp:has(.auth-brand) .auth-intro p {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #B9B1CD;
+    font-size: 0.96rem;
+    line-height: 1.75;
+}
+
+/* Center and style the Log in / Create account radio selector.
+   This fixes the left-aligned selector visible in the screenshot. */
+.stApp:has(.auth-brand) [data-testid="stRadio"] {
+    width: min(100%, 600px);
+    box-sizing: border-box;
+    margin: 0 auto 1rem;
+    padding: 0.85rem 1rem 0.95rem;
+    background: rgba(25, 24, 39, 0.68);
+    border: 1px solid rgba(192, 132, 252, 0.17);
+    border-radius: 15px;
+    animation: authIntroEnter 650ms ease-out both;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [data-testid="stWidgetLabel"] {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.6rem;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [data-testid="stWidgetLabel"] p {
+    margin: 0;
+    color: #B7A8D3;
+    font-size: 0.70rem;
+    font-weight: 750;
+    letter-spacing: 0.13em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] > label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.9rem;
+    margin: 0;
+    color: #D8D2E8;
+    background: rgba(11, 11, 18, 0.55);
+    border: 1px solid rgba(192, 132, 252, 0.16);
+    border-radius: 999px;
+    transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] > label:hover {
+    color: #FFFFFF;
+    border-color: rgba(192, 132, 252, 0.45);
+    background: rgba(124, 58, 237, 0.12);
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] > label:has(input:checked) {
+    color: #FFFFFF;
+    background: linear-gradient(110deg, rgba(124, 58, 237, 0.28), rgba(147, 51, 234, 0.16));
+    border-color: rgba(192, 132, 252, 0.48);
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] p {
+    margin: 0;
+    color: inherit;
+    font-size: 0.87rem;
+}
+
+/* Centered glass login/signup panel */
+.stApp:has(.auth-brand) [data-testid="stForm"] {
+    width: min(100%, 600px);
+    max-width: 600px;
+    box-sizing: border-box;
+    margin: 0 auto 1rem;
+    padding: 1.45rem 1.4rem 1.35rem;
+    background:
+        linear-gradient(145deg, rgba(25, 24, 39, 0.96), rgba(16, 15, 27, 0.96));
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.24), 0 5px 26px rgba(124, 58, 237, 0.07);
+    backdrop-filter: blur(18px);
+    animation: authFormEnter 700ms ease-out both;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] label {
+    color: #DCD5EC;
+    font-size: 0.86rem;
+    font-weight: 560;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] [data-testid="stTextInput"] {
+    margin-bottom: 0.55rem;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] input {
+    min-height: 2.75rem;
+    box-sizing: border-box;
+    color: #F5F3FF !important;
+    background: #11101D !important;
+    border: 1px solid rgba(192, 132, 252, 0.23) !important;
+    border-radius: 11px !important;
+    transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] input:focus {
+    background: #141122 !important;
+    border-color: #A855F7 !important;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.13) !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] input::placeholder {
+    color: #817A93 !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] [data-testid="stFormSubmitButton"] {
+    margin-top: 0.75rem;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] [data-testid="stFormSubmitButton"] button {
+    min-height: 3rem;
+    color: #FFFFFF;
+    font-size: 0.96rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    background: linear-gradient(110deg, #9333EA 0%, #7C3AED 52%, #6D28D9 100%);
+    border: 1px solid rgba(233, 213, 255, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 7px 22px rgba(124, 58, 237, 0.23);
+    transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] [data-testid="stFormSubmitButton"] button:hover {
+    color: #FFFFFF;
+    filter: brightness(1.09);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(124, 58, 237, 0.31);
+}
+
+/* Eye / password reveal control */
+.stApp:has(.auth-brand) [data-testid="stForm"] button {
+    border-radius: 10px;
+}
+
+/* Auth errors and success messages */
+.stApp:has(.auth-brand) [data-testid="stAlert"] {
+    width: min(100%, 600px);
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+}
+
+/* Login page responsive behavior */
+@media (max-width: 650px) {
+    .stApp:has(.auth-brand) .main .block-container {
+        padding-top: 1rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .stApp:has(.auth-brand) .auth-brand {
+        width: min(100%, 510px);
+        margin: 0.6rem auto 1.55rem;
+        padding: 0.85rem;
+        gap: 11px;
+        border-radius: 16px;
+    }
+
+    .stApp:has(.auth-brand) .auth-brand .nexora-logo {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        font-size: 25px;
+        border-radius: 14px;
+    }
+
+    .stApp:has(.auth-brand) .auth-brand-title {
+        font-size: 1.3rem;
+    }
+
+    .stApp:has(.auth-brand) .auth-brand-subtitle {
+        font-size: 0.78rem;
+    }
+
+    .stApp:has(.auth-brand) .auth-intro {
+        margin-bottom: 1.2rem;
+    }
+
+    .stApp:has(.auth-brand) .auth-intro h1 {
+        font-size: clamp(1.9rem, 8vw, 2.5rem);
+        letter-spacing: -0.9px;
+    }
+
+    .stApp:has(.auth-brand) .auth-intro p {
+        font-size: 0.88rem;
+    }
+
+    .stApp:has(.auth-brand) [data-testid="stRadio"] {
+        padding: 0.75rem 0.6rem;
+    }
+
+    .stApp:has(.auth-brand) [data-testid="stForm"] {
+        padding: 1.1rem 0.9rem 1rem;
+        border-radius: 16px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .stApp:has(.auth-brand) .auth-brand,
+    .stApp:has(.auth-brand) .auth-intro,
+    .stApp:has(.auth-brand) [data-testid="stRadio"],
+    .stApp:has(.auth-brand) [data-testid="stForm"] {
+        animation: none !important;
+    }
+
+    .stApp:has(.auth-brand) .auth-brand .nexora-logo {
+        animation: none !important;
+    }
+}
+
+@keyframes authBrandEnter {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes authIntroEnter {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes authFormEnter {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes authLogoGlow {
+    0%, 100% { box-shadow: 0 0 23px rgba(124, 58, 237, 0.25), inset 0 1px 0 rgba(255,255,255,0.14); }
+    50%      { box-shadow: 0 0 33px rgba(168, 85, 247, 0.38), inset 0 1px 0 rgba(255,255,255,0.18); }
+}
+
+/* ============================================================
+   FINAL AUTH LAYOUT FIX — matched to frontend_memory_chatbot.py
+   The auth screen has .auth-brand and .auth-intro in one markdown
+   element, followed by a Streamlit st.radio and a Streamlit form.
+   Center the actual Streamlit element containers, not only children.
+   ============================================================ */
+
+/* While the login screen is visible, hide the empty navigation rail.
+   The frontend renders the real sidebar only AFTER authentication. */
+.stApp:has(.auth-brand) section[data-testid="stSidebar"],
+.stApp:has(.auth-brand) [data-testid="stSidebarCollapsedControl"] {
+    display: none !important;
+}
+
+/* Let the main area use the full viewport when the sidebar is absent. */
+.stApp:has(.auth-brand) [data-testid="stAppViewContainer"] {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.stApp:has(.auth-brand) .main {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+    margin-left: 0 !important;
+}
+
+.stApp:has(.auth-brand) .main .block-container {
+    width: 100% !important;
+    max-width: 1000px !important;
+    box-sizing: border-box !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 1.5rem clamp(1rem, 3vw, 2rem) 3.5rem !important;
+}
+
+/* First markdown element contains BOTH .auth-brand and .auth-intro. */
+.stApp:has(.auth-brand) [data-testid="stElementContainer"]:has(.auth-brand) {
+    width: 100% !important;
+    max-width: 640px !important;
+    box-sizing: border-box !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-self: center !important;
+}
+
+.stApp:has(.auth-brand) .auth-brand {
+    width: 100% !important;
+    max-width: 540px !important;
+    box-sizing: border-box !important;
+    margin: 0 auto 1.8rem !important;
+    padding: 1rem 1.25rem !important;
+}
+
+.stApp:has(.auth-brand) .auth-intro {
+    width: 100% !important;
+    max-width: 620px !important;
+    box-sizing: border-box !important;
+    margin: 0 auto 1.25rem !important;
+    padding: 0 0.5rem !important;
+    text-align: center !important;
+}
+
+/* Center the OUTER Streamlit element wrapper for st.radio. */
+.stApp:has(.auth-brand) [data-testid="stElementContainer"]:has([data-testid="stRadio"]) {
+    display: block !important;
+    width: 100% !important;
+    max-width: 560px !important;
+    box-sizing: border-box !important;
+    margin: 0 auto 1rem !important;
+    align-self: center !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0.9rem 1rem 1rem !important;
+    background: rgba(25, 24, 39, 0.72) !important;
+    border: 1px solid rgba(192, 132, 252, 0.22) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [data-testid="stWidgetLabel"] {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 0 0.65rem !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [data-testid="stWidgetLabel"] p {
+    margin: 0 !important;
+    color: #B8A6D8 !important;
+    font-size: 0.70rem !important;
+    font-weight: 750 !important;
+    letter-spacing: 0.13em !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] > label {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.55rem 0.9rem !important;
+    margin: 0 !important;
+    color: #D8D2E8 !important;
+    background: rgba(11, 11, 18, 0.60) !important;
+    border: 1px solid rgba(192, 132, 252, 0.17) !important;
+    border-radius: 999px !important;
+    transition: color 180ms ease, background 180ms ease, border-color 180ms ease !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] > label:hover {
+    color: #FFFFFF !important;
+    background: rgba(124, 58, 237, 0.16) !important;
+    border-color: rgba(192, 132, 252, 0.45) !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] > label:has(input:checked) {
+    color: #FFFFFF !important;
+    background: linear-gradient(110deg, rgba(124, 58, 237, 0.30), rgba(147, 51, 234, 0.16)) !important;
+    border-color: rgba(192, 132, 252, 0.52) !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stRadio"] [role="radiogroup"] p {
+    margin: 0 !important;
+    color: inherit !important;
+    font-size: 0.88rem !important;
+}
+
+/* Center the OUTER Streamlit element wrapper for st.form as well. */
+.stApp:has(.auth-brand) [data-testid="stElementContainer"]:has([data-testid="stForm"]) {
+    display: block !important;
+    width: 100% !important;
+    max-width: 560px !important;
+    box-sizing: border-box !important;
+    margin: 0 auto 1rem !important;
+    align-self: center !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 1.35rem 1.35rem 1.2rem !important;
+    background: linear-gradient(145deg, rgba(25, 24, 39, 0.97), rgba(16, 15, 27, 0.97)) !important;
+    border: 1px solid rgba(192, 132, 252, 0.25) !important;
+    border-radius: 19px !important;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22), 0 5px 26px rgba(124, 58, 237, 0.07) !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] label {
+    color: #DCD5EC !important;
+    font-size: 0.86rem !important;
+    font-weight: 560 !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] input {
+    min-height: 2.7rem !important;
+    box-sizing: border-box !important;
+    color: #F5F3FF !important;
+    background: #11101D !important;
+    border: 1px solid rgba(192, 132, 252, 0.24) !important;
+    border-radius: 11px !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] input:focus {
+    background: #141122 !important;
+    border-color: #A855F7 !important;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.13) !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] [data-testid="stFormSubmitButton"] {
+    margin-top: 0.7rem !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stForm"] [data-testid="stFormSubmitButton"] button {
+    min-height: 3rem !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    background: linear-gradient(110deg, #9333EA 0%, #7C3AED 52%, #6D28D9 100%) !important;
+    border: 1px solid rgba(233, 213, 255, 0.28) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 7px 22px rgba(124, 58, 237, 0.22) !important;
+}
+
+.stApp:has(.auth-brand) [data-testid="stAlert"] {
+    width: 100% !important;
+    max-width: 560px !important;
+    box-sizing: border-box !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+@media (max-width: 650px) {
+    .stApp:has(.auth-brand) .main .block-container {
+        padding: 1rem 0.85rem 2rem !important;
+    }
+
+    .stApp:has(.auth-brand) [data-testid="stElementContainer"]:has(.auth-brand),
+    .stApp:has(.auth-brand) [data-testid="stElementContainer"]:has([data-testid="stRadio"]),
+    .stApp:has(.auth-brand) [data-testid="stElementContainer"]:has([data-testid="stForm"]) {
+        max-width: 100% !important;
+    }
+
+    .stApp:has(.auth-brand) .auth-brand {
+        margin-bottom: 1.35rem !important;
+        padding: 0.85rem !important;
+    }
+
+    .stApp:has(.auth-brand) .auth-intro {
+        margin-bottom: 1.1rem !important;
+        padding: 0 !important;
+    }
+
+    .stApp:has(.auth-brand) .auth-intro h1 {
+        font-size: clamp(1.9rem, 8vw, 2.5rem) !important;
+        letter-spacing: -0.9px !important;
+    }
+
+    .stApp:has(.auth-brand) [data-testid="stRadio"] {
+        padding: 0.75rem 0.6rem 0.85rem !important;
+    }
+
+    .stApp:has(.auth-brand) [data-testid="stForm"] {
+        padding: 1.05rem 0.9rem 1rem !important;
+    }
+}
+
+
+
+/* ============================================================
+   NEXORA AI — REFERENCE MATCH OVERRIDES
+   Visual-only overrides. No Python or chatbot logic changes.
+   ============================================================ */
+
+:root {
+    --nexora-bg: #090912;
+    --nexora-bg-deep: #07070D;
+    --nexora-sidebar: #0A0912;
+    --nexora-surface: rgba(20, 18, 31, 0.88);
+    --nexora-surface-2: rgba(31, 24, 48, 0.92);
+    --nexora-primary: #7C3AED;
+    --nexora-purple: #A855F7;
+    --nexora-lavender: #C084FC;
+    --nexora-border: rgba(168, 85, 247, 0.24);
+}
+
+/* Keep the page dark; put the violet glow in ambient layers, not a flat wash. */
+.stApp {
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at 78% 4%, rgba(119, 38, 220, 0.23) 0%, rgba(73, 26, 135, 0.12) 22%, transparent 47%),
+        radial-gradient(ellipse at 4% 72%, rgba(92, 29, 190, 0.20) 0%, transparent 28%),
+        radial-gradient(ellipse at 78% 83%, rgba(65, 28, 130, 0.13) 0%, transparent 32%),
+        #090912 !important;
+}
+
+.stApp::before,
+.stApp::after {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    width: 44rem;
+    height: 44rem;
+    border-radius: 50%;
+    opacity: .78;
+    filter: blur(1px);
+}
+
+.stApp::before {
+    top: -28rem;
+    right: -9rem;
+    border: 1px solid rgba(168, 85, 247, .13);
+    box-shadow:
+        0 0 70px 18px rgba(124, 58, 237, .10),
+        inset 0 0 80px rgba(124, 58, 237, .08);
+    background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, .19), transparent 64%);
+}
+
+.stApp::after {
+    bottom: -34rem;
+    left: 13rem;
+    border: 1px solid rgba(168, 85, 247, .11);
+    box-shadow: 0 0 90px 16px rgba(91, 33, 182, .13);
+    background: radial-gradient(circle at 50% 50%, rgba(91, 33, 182, .16), transparent 66%);
+}
+
+.stApp > header,
+.stApp [data-testid="stAppViewContainer"],
+.stApp [data-testid="stMain"],
+.stApp .main,
+.stApp .main .block-container {
+    position: relative;
+    z-index: 1;
+}
+
+.stApp .main .block-container {
+    max-width: 1600px !important;
+    padding-top: 1.15rem !important;
+    padding-bottom: 6rem !important;
+    padding-left: clamp(1.25rem, 2.7vw, 2.65rem) !important;
+    padding-right: clamp(1.25rem, 2.7vw, 2.65rem) !important;
+}
+
+/* The target reference has a compact, left-aligned hero rather than a centered splash screen. */
+.nexora-hero {
+    align-items: flex-start !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: .25rem 0 1.15rem !important;
+    min-height: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+.nexora-hero::before {
+    content: none !important;
+}
+
+.nexora-hero::after {
+    content: "" !important;
+    position: absolute !important;
+    z-index: -1 !important;
+    top: -9.5rem !important;
+    right: -9rem !important;
+    left: auto !important;
+    width: 44rem !important;
+    height: 16rem !important;
+    border: 0 !important;
+    border-radius: 0 0 48% 48% !important;
+    transform: rotate(-8deg) !important;
+    background:
+        radial-gradient(ellipse at 45% 0%, rgba(192, 132, 252, .52), rgba(124, 58, 237, .20) 24%, rgba(58, 24, 103, .08) 48%, transparent 72%) !important;
+    box-shadow: 0 1px 0 rgba(192, 132, 252, .42) !important;
+    pointer-events: none !important;
+}
+
+.hero-orbit {
+    display: none !important;
+}
+
+.nexora-hero h1 {
+    margin: .1rem 0 .3rem !important;
+    max-width: 850px !important;
+    font-size: clamp(2rem, 2.55vw, 2.65rem) !important;
+    line-height: 1.16 !important;
+    font-weight: 760 !important;
+    letter-spacing: -.045em !important;
+    text-align: left !important;
+    text-shadow: 0 2px 28px rgba(124, 58, 237, .10);
+}
+
+.nexora-hero > p {
+    margin: .2rem 0 0 !important;
+    max-width: 850px !important;
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+    text-align: left !important;
+    color: #BFB4D9 !important;
+}
+
+.feature-grid {
+    margin: 1.05rem 0 1.6rem !important;
+    max-width: none !important;
+    gap: 13px !important;
+}
+
+.feature-card {
+    min-height: 108px !important;
+    padding: .9rem .85rem !important;
+    gap: 11px !important;
+    border-radius: 16px !important;
+    background:
+        linear-gradient(135deg, rgba(25, 22, 39, .94), rgba(15, 14, 24, .91)) !important;
+    border: 1px solid rgba(168, 85, 247, .22) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .12), inset 0 1px 0 rgba(255,255,255,.025) !important;
+    backdrop-filter: blur(12px);
+}
+
+.feature-card::before {
+    background: radial-gradient(circle at 100% 0%, rgba(168, 85, 247, .10), transparent 52%) !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: rgba(192, 132, 252, .48) !important;
+    box-shadow: 0 12px 32px rgba(74, 29, 126, .20) !important;
+}
+
+.feature-icon {
+    border-radius: 12px !important;
+    box-shadow: 0 0 22px rgba(124, 58, 237, .10) !important;
+}
+
+/* Refined sidebar: quieter background, crisp active conversation, visible account controls. */
+section[data-testid="stSidebar"] {
+    background:
+        radial-gradient(ellipse at 12% 0%, rgba(124, 58, 237, .13), transparent 38%),
+        linear-gradient(180deg, #0D0B17 0%, #090911 58%, #0C0915 100%) !important;
+    border-right: 1px solid rgba(168, 85, 247, .24) !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stButton"] button {
+    transition: background .18s ease, border-color .18s ease, transform .18s ease !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stButton"] button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(192, 132, 252, .45) !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stButton"] button[kind="primary"],
+section[data-testid="stSidebar"] [data-testid="stButton"] button[kind="secondary"] {
+    border-radius: 12px !important;
+}
+
+/* Messages: dark translucent surfaces with purple edge lighting. */
+[data-testid="stChatMessage"] {
+    background: linear-gradient(135deg, rgba(24, 21, 37, .91), rgba(15, 14, 24, .88)) !important;
+    border: 1px solid rgba(168, 85, 247, .22) !important;
+    border-radius: 17px !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .14) !important;
+    backdrop-filter: blur(12px);
+}
+
+[data-testid="stChatMessage"]:hover {
+    border-color: rgba(192, 132, 252, .36) !important;
+}
+
+/* Minimal premium chat composer — replaces the overly bright outline/glow. */
+[data-testid="stChatInput"] {
+    background: #15141D !important;
+    border: 1px solid rgba(168, 85, 247, .28) !important;
+    border-radius: 15px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    overflow: visible !important;
+    transition: border-color .18s ease, box-shadow .18s ease !important;
+    backdrop-filter: blur(10px);
+}
+
+[data-testid="stChatInput"]:focus,
+[data-testid="stChatInput"]:focus-within {
+    border-color: rgba(168, 85, 247, .62) !important;
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, .055) !important;
+    outline: none !important;
+}
+
+/* Streamlit/BaseWeb can put a second border around the textarea. Remove it. */
+[data-testid="stChatInput"] form,
+[data-testid="stChatInput"] [data-baseweb="textarea"],
+[data-testid="stChatInput"] [data-baseweb="base-input"],
+[data-testid="stChatInput"] textarea,
+[data-testid="stChatInput"] input {
+    background: transparent !important;
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+[data-testid="stChatInput"] textarea {
+    color: #F5F3FF !important;
+    caret-color: #C084FC !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+[data-testid="stChatInput"] textarea::placeholder,
+[data-testid="stChatInput"] input::placeholder {
+    color: #9993AC !important;
+    opacity: 1 !important;
+}
+
+/* Reset the global keyboard-focus outline inside the composer. */
+[data-testid="stChatInput"] textarea:focus,
+[data-testid="stChatInput"] textarea:focus-visible,
+[data-testid="stChatInput"] input:focus,
+[data-testid="stChatInput"] input:focus-visible,
+[data-testid="stChatInput"] [data-baseweb="textarea"]:focus-within,
+[data-testid="stChatInput"] [data-baseweb="base-input"]:focus-within {
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Keep the attachment control quiet; reserve purple fill for Send. */
+[data-testid="stChatInput"] button {
+    border-radius: 10px !important;
+    transition: background .18s ease, border-color .18s ease, transform .18s ease !important;
+    outline: none !important;
+}
+
+[data-testid="stChatInput"] button[aria-label*="Attach"],
+[data-testid="stChatInput"] button[aria-label*="attach"],
+[data-testid="stChatInput"] button[title*="Attach"],
+[data-testid="stChatInput"] button[title*="attach"] {
+    color: #C4B5FD !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+}
+
+[data-testid="stChatInput"] button[aria-label*="Attach"]:hover,
+[data-testid="stChatInput"] button[aria-label*="attach"]:hover,
+[data-testid="stChatInput"] button[title*="Attach"]:hover,
+[data-testid="stChatInput"] button[title*="attach"]:hover {
+    background: rgba(124, 58, 237, .10) !important;
+    border-color: rgba(168, 85, 247, .22) !important;
+}
+
+/* Send control: compact violet, no neon halo. */
+[data-testid="stChatInput"] button[aria-label*="Submit"],
+[data-testid="stChatInput"] button[aria-label*="Send"],
+[data-testid="stChatInput"] button[title*="Submit"],
+[data-testid="stChatInput"] button[title*="Send"] {
+    color: #FFFFFF !important;
+    background: #7C3AED !important;
+    border: 1px solid rgba(192, 132, 252, .22) !important;
+    box-shadow: none !important;
+}
+
+[data-testid="stChatInput"] button[aria-label*="Submit"]:hover,
+[data-testid="stChatInput"] button[aria-label*="Send"]:hover,
+[data-testid="stChatInput"] button[title*="Submit"]:hover,
+[data-testid="stChatInput"] button[title*="Send"]:hover {
+    background: #6D28D9 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Fallback for Streamlit versions that do not expose an accessible button label. */
+[data-testid="stChatInput"] button:focus-visible {
+    outline: 2px solid rgba(192, 132, 252, .55) !important;
+    outline-offset: 2px !important;
+    box-shadow: none !important;
+}
+
+/* Keep the Streamlit toolbar dark and unobtrusive. */
+header[data-testid="stHeader"] {
+    background: rgba(8, 8, 16, .88) !important;
+    border-bottom: 1px solid rgba(168, 85, 247, .08) !important;
+    backdrop-filter: blur(16px);
+}
+
+@media (max-width: 900px) {
+    .nexora-hero h1 {
+        font-size: clamp(1.8rem, 5vw, 2.35rem) !important;
+    }
+    .nexora-hero::after {
+        right: -18rem !important;
+        opacity: .65 !important;
+    }
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .stApp .main .block-container {
+        padding-top: .8rem !important;
+        padding-left: .85rem !important;
+        padding-right: .85rem !important;
+    }
+    .feature-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .nexora-hero > p {
+        font-size: .92rem !important;
+    }
+    .desktop-break {
+        display: none !important;
+    }
+}
+
+
+/* Last-resort reset for BaseWeb chat-input focus layers (keeps one calm outer border). */
+[data-testid="stChatInput"] > div,
+[data-testid="stChatInput"] > div > div,
+[data-testid="stChatInput"] form > div,
+[data-testid="stChatInput"] form > div > div {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+[data-testid="stChatInput"] [data-baseweb="textarea"] > div,
+[data-testid="stChatInput"] [data-baseweb="base-input"] > div {
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
