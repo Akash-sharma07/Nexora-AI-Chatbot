@@ -544,7 +544,7 @@ async def human_node(state: ChatbotState, config=None) -> Command[Literal["tools
     assert_thread_owner(configurable.get("user_id"), configurable.get("thread_id"))
 
     last_msg = state["messages"][-1]
-    tool_calls = last_msg.tool_calls
+    tool_calls = getattr(last_msg, "tool_calls", []) or []
     mcp_calls = [tc for tc in tool_calls if tc["name"] in MCP_TOOL_NAMES]
 
     if not mcp_calls:
@@ -558,17 +558,31 @@ async def human_node(state: ChatbotState, config=None) -> Command[Literal["tools
         "message": "Approve the MCP tool call(s)?"
     })
 
-    if decision and decision.get("approved"):
+    if decision and decision.get("approved") is True:
         return Command(goto="tools")
 
-    rejection_message = [
-        ToolMessage(
-            content="User denied permission to run this MCP tool.",
-            tool_call_id=tc["id"]
+    rejection_messages = []
+
+    for tc in tool_calls:
+
+        if tc["name"] in MCP_TOOL_NAMES:
+            content = (
+                "User denied permission to execute this MCP tool."
+            )
+        else:
+            content = (
+                "This tool call was not executed because it was "
+                "part of a batch containing a rejected MCP call."
+            )
+
+        rejection_messages.append(
+            ToolMessage(
+                content=content,
+                name=tc["name"],
+                tool_call_id=tc["id"]
+            )
         )
-        for tc in mcp_calls
-    ]
-    return Command(goto="chat_node", update={"messages": rejection_message})
+    return Command(goto="chat_node", update={"messages": rejection_messages})
 
 
 def route_tool_calls(state: ChatbotState):

@@ -358,21 +358,6 @@ if st.sidebar.button("Log out", key="logout_button", use_container_width=True):
         del st.session_state[key]
     st.rerun()
 
-# # Slim main header replaces the large, lonely centered title.
-# st.markdown("""
-# <div class="nexora-header">
-#     <div class="nexora-brand">
-#         <div class="nexora-logo">✦</div>
-#         <div>
-#             <div class="nexora-title">Nexora AI</div>
-#             <div class="nexora-subtitle">
-#                 Your personal AI assistant
-#             </div>
-#         </div>
-#     </div>
-# </div>
-# """, unsafe_allow_html=True)
-
 # Empty-state landing panel: show only before the first message in a chat.
 if not st.session_state["message_history"] and not st.session_state["pending_interrupt"]:
     st.markdown(
@@ -434,7 +419,7 @@ if st.session_state["pending_interrupt"]:
         st.session_state["pending_interrupt"] = None
         st.rerun()
 
-    with st.chat_message("assistant", avatar="✦"):
+    with st.chat_message("assistant", avatar="✨"):
         st.warning("Approval required before running this tool call:")
         for tc in data["payload"]["tool_calls"]:
             st.code(f"{tc['name']}({tc['args']})")
